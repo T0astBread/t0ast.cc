@@ -1,12 +1,32 @@
-$primary-color: #108db8;
+$primary-color: #59477F; // Agiri Goshiki's hair color
+$primary-text-color: white;
+$background: #31323C; // Agiri's Skirt color
+$background: #121316; // Agiri's Skirt color but darkened
+$background-dark: #090a0b;
+$background-text-color: white;
 $sans-serif-font: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-//  S P A C E
+$monospace-font: 'Consolas', monospace;
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    font-family: $sans-serif-font;
+    font-family: $monospace-font;
     font-weight: 300;
     font-size: 16px;
     margin: 0;
     padding: 0;
+    color: $background-text-color;
+    background: $background;
+}
+
+section:not(:first-child) {
+    margin-top: 3.5em;
+}
+
+p {
+    max-width: 40em;
 }
 
 a {
@@ -15,26 +35,24 @@ a {
     font-weight: bold;
 }
 
-img {
-    max-width: 100%;
-}
+nav#page-nav {
+    // position: fixed;
+    // top: 0;
+    border-bottom: 1px solid #333;
+    position: relative;
 
-nav {
-    width: 100%;
-    background: $primary-color;
-    a {
-        color: white;
-        padding: 1rem;
-        display: inline-block;
-    }
-    &.light {
-		background: transparent;
-		a {
-			color: black;
-		}
+    &::before {
+        content: " ";
+        width: 100%;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        border-bottom: 1px solid #555;
     }
 }
 
 .content {
     padding: 1rem;
+    // margin-top: 1rem;
 }

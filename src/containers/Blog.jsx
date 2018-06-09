@@ -1,4 +1,3 @@
-
 import React from 'react'
 import { withRouteData, Link } from 'react-static'
 //
@@ -7,10 +6,9 @@ import StandardPage from '../pages/StandardPage'
 export default withRouteData(({ posts }) => (
 	<StandardPage>
 		<div>
-			<h1>It’s blog time.</h1>
-			<br />
-			All Posts:
-    	<ul>
+			<h1>Blog</h1>
+			<span>All Posts:</span>
+    		<ul>
 				{posts.map(post => (
 					<li key={post.id}>
 						<Link to={`/blog/post/${post.id}/`}>{post.title}</Link>

@@ -1,0 +1,27 @@
+@import "app";
+
+#home {
+    display: inline-block;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+
+    nav {
+        font-size: 1.75em;
+        border: none;
+
+        &::before {
+            content: none;
+        }
+
+        a {
+            color: $background-text-color;
+        }
+    }
+
+    img {
+        max-width: 60%;
+    }
+}

@@ -2,12 +2,19 @@
 import React from 'react'
 //
 import StandardPage from '../pages/StandardPage'
+import Link from '../components/Link';
 
 export default () => (
 	<StandardPage>
-		<div>
-			<h1>This is what we’re all about.</h1>
-			<p>React, static sites, performance, speed. It’s the stuff that makes us tick.</p>
-		</div>
+		<section>
+			<h1>About Me</h1>
+			<p>No one needs an about page about me</p>
+		</section>
+		<section>
+			<h1>About this Site</h1>
+			<p>
+				This site is written in JavaScript (JSX) using <Link to="https://react-static.js.org" external newTab>React Static</Link>.
+			</p>
+		</section>
 	</StandardPage>
 )

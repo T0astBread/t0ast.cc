@@ -1,0 +1,20 @@
+@import "app";
+
+nav {
+    width: 100%;
+    background: $background-dark;
+
+    a {
+        color: $background-text-color;
+        padding: .25rem .5rem;
+        display: inline-block;
+
+        &.external {
+            color: $primary-color;
+        }
+    }
+
+    &.light {
+        background: transparent;
+    }
+}
