@@ -1,6 +1,6 @@
 import React from 'react'
 //
-import '../styles/lists.scss'
+import '../scss/components/lists.scss'
 
 const List = ({ id, className, children }) => (
     <ul className={"list " + (className||"")}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 //
-import "../styles/home.scss"
+import "../scss/pages/home.scss"
 
 const NavPage = props => (
     <div>

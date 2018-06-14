@@ -1,6 +1,6 @@
 import React from 'react'
 //
-import "../styles/navbar.scss"
+import "../scss/components/navbar.scss"
 import Link from './Link'
 
 const NavBar = props => (

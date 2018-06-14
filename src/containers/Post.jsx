@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouteData } from 'react-static'
 //
-import "../styles/post.scss"
+import "../scss/containers/post.scss"
 import StandardPage from '../pages/StandardPage'
 import Link from '../components/Link';
 

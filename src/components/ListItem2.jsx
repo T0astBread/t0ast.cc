@@ -1,7 +1,7 @@
 import React from 'react'
 //
-import '../styles/lists.scss'
-import '../styles/styles/typography.scss'
+import '../scss/components/lists.scss'
+import '../scss/styles/typography.scss'
 
 const ListItem2 = ({ text1, text2 }) => (
     <div className="list-item-2">
