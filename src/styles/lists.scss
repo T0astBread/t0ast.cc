@@ -1,0 +1,53 @@
+@import "styles/colors";
+@import "styles/typography";
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    a {
+        color: $color_background-text;
+    }
+}
+
+.list-item-2 {
+    $padding-vertically: .75rem;
+    $padding-horizontally: 1rem;
+    padding: $padding-vertically $padding-horizontally;
+    position: relative;
+
+    li:first-child & {
+        margin-top: $padding-vertically;
+    }
+
+    .text-1 {
+        @include text_body-strong();
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    .text-2 {
+        @include text_small();
+        padding: 0;
+        margin: 0;
+    }
+
+    &:hover, :focus & {
+        .text-1::before {
+            $arrow-size: 5px;
+            content: " ";
+            display: inline-block;
+            position: absolute;
+            left: -$arrow-size * 3.5;
+            top: 50%;
+            transform: translateY(-50%);
+            vertical-align: middle;
+            border: $arrow-size solid $color_background-text;
+            border-top-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+        }
+    }
+}

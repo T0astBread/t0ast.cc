@@ -1,24 +1,17 @@
-$primary-color: #59477F; // Agiri Goshiki's hair color
-$primary-text-color: white;
-$background: #31323C; // Agiri's Skirt color
-$background: #121316; // Agiri's Skirt color but darkened
-$background-dark: #090a0b;
-$background-text-color: white;
-$sans-serif-font: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-$monospace-font: 'Consolas', monospace;
+@import "styles/colors";
+@import "styles/typography";
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: $monospace-font;
-    font-weight: 300;
-    font-size: 16px;
     margin: 0;
     padding: 0;
-    color: $background-text-color;
-    background: $background;
+    color: $color_background-text;
+    background-color: $color_background;
+    @include text_body();
+    font-family: $font_monospace;
 }
 
 section:not(:first-child) {
@@ -30,9 +23,9 @@ p {
 }
 
 a {
+    // @include text_body-strong();
     text-decoration: none;
-    color: $primary-color;
-    font-weight: bold;
+    color: $color_primary;
 }
 
 nav#page-nav {

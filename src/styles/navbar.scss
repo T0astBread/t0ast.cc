@@ -1,20 +1,20 @@
-@import "app";
+@import "styles/colors";
 
 nav {
     width: 100%;
-    background: $background-dark;
+    background: $color_background-dark;
 
     a {
-        color: $background-text-color;
+        color: $color_background-text;
         padding: .25rem .5rem;
         display: inline-block;
 
         &.external {
-            color: $primary-color;
+            color: $color_primary;
         }
     }
 
     &.light {
-        background: transparent;
+        background: none;
     }
 }

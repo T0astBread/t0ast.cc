@@ -1,0 +1,10 @@
+@import "styles/typography";
+
+a.back {
+    @include text_small();
+
+    &::before {
+        content: "<";
+        margin-right: 1em;
+    }
+}

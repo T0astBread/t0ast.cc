@@ -2,19 +2,25 @@ import React from 'react'
 import { withRouteData, Link } from 'react-static'
 //
 import StandardPage from '../pages/StandardPage'
+import ListItem2 from '../components/ListItem2';
+import List from '../components/List';
 
 export default withRouteData(({ posts }) => (
 	<StandardPage>
 		<div>
 			<h1>Blog</h1>
 			<span>All Posts:</span>
-    		<ul>
+			<List>
 				{posts.map(post => (
 					<li key={post.id}>
-						<Link to={`/blog/post/${post.id}/`}>{post.title}</Link>
+						<Link to={`/blog/post/${post.id}/`}>
+							<ListItem2
+								text1={post.title}
+								text2={new Date(post.date).toString("YY")}/>
+						</Link>
 					</li>
 				))}
-			</ul>
+			</List>
 		</div>
 	</StandardPage>
 ))

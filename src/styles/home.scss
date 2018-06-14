@@ -1,4 +1,5 @@
-@import "app";
+@import "styles/colors";
+@import "styles/typography";
 
 #home {
     display: inline-block;
@@ -9,7 +10,6 @@
     text-align: center;
 
     nav {
-        font-size: 1.75em;
         border: none;
 
         &::before {
@@ -17,7 +17,8 @@
         }
 
         a {
-            color: $background-text-color;
+            @include text_large();
+            color: $color_background-text;
         }
     }
 
