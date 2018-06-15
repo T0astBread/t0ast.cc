@@ -10,8 +10,8 @@ const LinkX = props => {
             EXTERNAL_CLASS_NAME
         props = {...props, className: newClassName}
     }
-    if(props.newTab) {
-        props = {...props, target: "_blank"}
+    if(props.newtab) {
+        props = {...props, target: "_blank", rel: "noopener norefferrer"}
     }
     return Link(props)
 }

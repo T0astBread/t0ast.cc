@@ -12,7 +12,7 @@ export default () => (
 		<section>
 			<h1>About this Site</h1>
 			<p>
-				This site is written in JavaScript (JSX) using <Link to="https://react-static.js.org" external newTab>React Static</Link>.
+				This site is written in JavaScript (JSX) using <Link to="https://react-static.js.org" external newtab>React Static</Link>.
 			</p>
 		</section>
 	</StandardPage>
