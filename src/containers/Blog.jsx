@@ -16,7 +16,7 @@ export default withRouteData(({ posts }) => (
 						<Link to={`/blog/post/${post.id}/`}>
 							<ListItem2
 								text1={post.title}
-								text2={new Date(post.date).toString("YY")}/>
+								text2={new Date(post.lastEditDate).toLocaleString()}/>
 						</Link>
 					</li>
 				))}
