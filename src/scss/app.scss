@@ -18,7 +18,7 @@ section:not(:first-child) {
     margin-top: 3.5em;
 }
 
-p {
+p, ul, ol {
     max-width: 50em;
 }
 
@@ -26,6 +26,15 @@ a {
     // @include text_body-strong();
     text-decoration: none;
     color: $color_primary;
+
+    &.back {
+        @include text_small();
+    
+        &::before {
+            content: "<";
+            margin-right: 1em;
+        }
+    }
 }
 
 nav#page-nav {

@@ -8,7 +8,7 @@ import Link from '../components/Link';
 
 export default withRouteData(({ post }) => (
 	<StandardPage>
-		<div>
+		<article className="post">
 			<Link to="/blog" className="back">Back</Link>
 			<header>
 				<h1>{post.title}</h1>
@@ -20,6 +20,6 @@ export default withRouteData(({ post }) => (
 			<main>
 				<ReactMarkdown source={post.body}/>
 			</main>
-		</div>
+		</article>
 	</StandardPage>
 ))
