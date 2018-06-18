@@ -1,12 +1,56 @@
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
+let blogConfig
+try {
+  blogConfig = require("./blog.config.json")
+}
+catch(ex) {
+  blogConfig = {
+    repo: {
+      owner: "TestBread",
+      name: "notblog"
+    }
+  }
+}
+console.log(`Loaded config: ${JSON.stringify(blogConfig)}`)
+
+const RAW_REPO_URL = `https://raw.githubusercontent.com/${blogConfig.repo.owner}/${blogConfig.repo.name}/master`
+const API_REPO_URL = `https://api.github.com/repos/${blogConfig.repo.owner}/${blogConfig.repo.name}`
+const EDIT_REPO_URL = `https://github.com/${blogConfig.repo.owner}/${blogConfig.repo.name}/blob/master`
+const TOC_URL = `${RAW_REPO_URL}/table_of_contents.json`
+
 export default {
   getSiteData: () => ({
     title: 'React Static',
   }),
   getRoutes: async () => {
-    const { data: posts } = await axios.get('https://jsonplaceholder.typicode.com/posts')
+    const { data: toc } = await axios.get(TOC_URL)
+
+    let index = 1
+    const posts = await Promise.all(toc.posts.map(async postMeta => {
+      const { data: postText } = await axios.get(`${RAW_REPO_URL}/posts/${postMeta.filename}`)
+      const title = /^# (.+$)/m.exec(postText)[1]
+      const body = postText.replace(/^# .+\n/, "")
+      
+      const { data: postCommits } = await axios.get(`${API_REPO_URL}/commits?path=/posts/${postMeta.filename}`)
+      const lastEditDate = postCommits
+        .map(commit => commit.commit.author.date)
+        .map(commitDate => new Date(commitDate))
+        .sort()
+        [0]
+        .toLocaleString("en-US")
+        
+      return {
+        id: postMeta.filename.replace(".md", ""),
+        title,
+        tags: postMeta.tags,
+        lastEditDate,
+        body,
+        githubUrl: `${EDIT_REPO_URL}/posts/${postMeta.filename}`
+      }
+    }))
+
     return [
       {
         path: '/',
@@ -23,7 +67,7 @@ export default {
           posts,
         }),
         children: posts.map(post => ({
-          path: `/post/${post.id}`,
+          path: `/posts/${post.id}`,
           component: 'src/containers/Post',
           getData: () => ({
             post,

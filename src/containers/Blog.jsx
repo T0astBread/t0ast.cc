@@ -13,10 +13,10 @@ export default withRouteData(({ posts }) => (
 			<List>
 				{posts.map(post => (
 					<li key={post.id}>
-						<Link to={`/blog/post/${post.id}/`}>
+						<Link to={`/blog/posts/${post.id}`}>
 							<ListItem2
 								text1={post.title}
-								text2={new Date(post.date).toString("YY")}/>
+								text2={post.lastEditDate}/>
 						</Link>
 					</li>
 				))}

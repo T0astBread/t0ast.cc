@@ -1,10 +1,19 @@
 @import "../styles/typography";
 
-a.back {
-    @include text_small();
-
-    &::before {
-        content: "<";
-        margin-right: 1em;
+article.post {
+    header {
+        margin: 2em 0rem;
+    
+        h1 {
+            margin: 0;
+        }
+    
+        small {
+            @include text_small();
+    
+            & > span::after {
+                content: " | ";
+            }
+        }
     }
 }
