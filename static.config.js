@@ -7,7 +7,7 @@ try {
 }
 catch(ex) {
   blogConfig = {
-    blogRepo: {
+    repo: {
       owner: "TestBread",
       name: "notblog"
     }
