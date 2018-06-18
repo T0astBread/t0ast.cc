@@ -1,9 +1,23 @@
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
-const RAW_REPO_URL = "https://raw.githubusercontent.com/TestBread/notblog/master"
-const API_REPO_URL = "https://api.github.com/repos/TestBread/notblog"
-const EDIT_REPO_URL = "https://github.com/TestBread/notblog/blob/master"
+let blogConfig
+try {
+  blogConfig = require("./blog.config.json")
+}
+catch(ex) {
+  blogConfig = {
+    blogRepo: {
+      owner: "TestBread",
+      name: "notblog"
+    }
+  }
+}
+console.log(`Loaded config: ${JSON.stringify(blogConfig)}`)
+
+const RAW_REPO_URL = `https://raw.githubusercontent.com/${blogConfig.repo.owner}/${blogConfig.repo.name}/master`
+const API_REPO_URL = `https://api.github.com/repos/${blogConfig.repo.owner}/${blogConfig.repo.name}`
+const EDIT_REPO_URL = `https://github.com/${blogConfig.repo.owner}/${blogConfig.repo.name}/blob/master`
 const TOC_URL = RAW_REPO_URL + "/table_of_contents.json"
 
 export default {
