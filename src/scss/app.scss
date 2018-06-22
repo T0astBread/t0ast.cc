@@ -27,6 +27,10 @@ a {
     text-decoration: none;
     color: $color_primary;
 
+    &:hover {
+        text-decoration: underline;
+    }
+
     &.back {
         @include text_small();
     
