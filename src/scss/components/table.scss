@@ -1,0 +1,33 @@
+@import "../styles/colors";
+@import "../styles/typography";
+
+table {
+    border-spacing: 0;
+}
+
+th, td {
+    padding: .5rem;
+    text-align: center;
+
+    $cellborder: 1px solid $color_primary;
+    border: $cellborder;
+    border-right: none;
+    border-bottom: none;
+
+    &:first-child {
+        text-align: start;
+    }
+
+    &:last-child {
+        text-align: end;
+        border-right: $cellborder;
+    }
+
+    tbody tr:last-child & {
+        border-bottom: $cellborder;
+    }
+}
+
+th {
+    @include text_small();
+}

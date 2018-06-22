@@ -2,6 +2,7 @@ import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 //
 import { getBlogPosts } from './static/blog'
+import { getReposData } from './static/repos'
 
 export default {
   getSiteData: () => ({
@@ -9,6 +10,7 @@ export default {
   }),
   getRoutes: async () => {
     const posts = await getBlogPosts()
+    const repos = await getReposData()
 
     return [
       {
@@ -32,6 +34,11 @@ export default {
             post,
           }),
         })),
+      },
+      {
+        path: '/repos',
+        component: 'src/containers/Repositories',
+        getData: () => repos
       },
       {
         is404: true,

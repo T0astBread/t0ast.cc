@@ -1,0 +1,23 @@
+query {
+    viewer {
+        pinnedRepositories(first: 100) {
+            nodes {
+                nameWithOwner
+            }
+        }
+        repositories(first: 100, privacy: PUBLIC) {
+            nodes {
+                name
+                description
+                owner {
+                    login
+                }
+                stargazers {
+                    totalCount
+                }
+                forkCount
+                updatedAt
+            }
+        }
+    }
+}
