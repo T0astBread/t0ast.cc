@@ -33,7 +33,9 @@
         padding: 0;
         margin: 0;
     }
+}
 
+.list .list-item-2 {
     &:hover, :focus & {
         .text-1::before {
             $arrow-size: 5px;
