@@ -1,6 +1,7 @@
 import axios from 'axios'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 //
+import setUpAxios from './static/axios_setup'
 import { getBlogPosts } from './static/blog'
 import { getReposData } from './static/repos'
 
@@ -9,6 +10,8 @@ export default {
     title: 'React Static',
   }),
   getRoutes: async () => {
+    setUpAxios()
+    
     const posts = await getBlogPosts()
     const repos = await getReposData()
 

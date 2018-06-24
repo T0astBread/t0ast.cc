@@ -37,7 +37,6 @@ const loadRepoMetadataInto = async (githubData) => {
         const rqResult = await (axios.get(rawFileUrlFrom(metaRepo(), `records/${repoData.name}.json`))
             .catch(err => {}))
         if (rqResult && rqResult.status === 200) {
-            console.log(`Loaded metadata for repo '${repoData.name}'`)
             repoData.metaData = rqResult.data
         } else setDefaultMetadataToRepo(repoData)
         repoData.metaData.statusValue = repoStatusPrecedence[repoData.metaData.status]
