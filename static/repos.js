@@ -34,7 +34,7 @@ const setDefaultMetadataToRepo = repo => {
 
 const loadRepoMetadataInto = async (githubData) => {
     return Promise.all(githubData.repositories.nodes.map(async repoData => {
-        const rqResult = await (axios.get(rawFileUrlFrom(metaRepo(), `records/${repoData.name}.json`))
+        const rqResult = await (axios.get(rawFileUrlFrom(metaRepo(), `records/${repoData.owner.login}/${repoData.name}.json`))
             .catch(err => {}))
         if (rqResult && rqResult.status === 200) {
             repoData.metaData = rqResult.data
