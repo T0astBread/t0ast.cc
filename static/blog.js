@@ -1,17 +1,14 @@
 import axios from 'axios'
 import {
+    blogRepo as blogRepoConf
+} from './config'
+import {
     rawFileUrlFrom,
     apiUrlForRepoFrom
 } from './github'
-import config from './static.config.json'
 
 
-const blogRepo = config.blogRepo || {
-    repo: {
-        owner: "TestBread",
-        name: "notblog"
-    }
-}
+const blogRepo = blogRepoConf()
 
 const TOC_URL = rawFileUrlFrom(blogRepo, "table_of_contents.json")
 

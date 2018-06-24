@@ -1,5 +1,7 @@
 import axios from "axios";
-import config from './static.config.json'
+import {
+    metaRepo
+} from './config'
 const fs = require("fs")
 import {
     graphQlRequest,
@@ -32,7 +34,7 @@ const setDefaultMetadataToRepo = repo => {
 
 const loadRepoMetadataInto = async (githubData) => {
     return Promise.all(githubData.repositories.nodes.map(async repoData => {
-        const rqResult = await (axios.get(rawFileUrlFrom(config.metaRepo, `records/${repoData.name}.json`))
+        const rqResult = await (axios.get(rawFileUrlFrom(metaRepo(), `records/${repoData.name}.json`))
             .catch(err => {}))
         if (rqResult && rqResult.status === 200) {
             console.log(`Loaded metadata for repo '${repoData.name}'`)
