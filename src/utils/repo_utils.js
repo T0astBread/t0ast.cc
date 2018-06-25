@@ -1,7 +1,8 @@
 export const repoStatusPrecedence = {
     "shipped": 100,
     "finished": 90,
-    "ongoing-support": 80,
+    "unpolished": 80,
+    "ongoing-support": 75,
     "active-development": 70,
     "development": 60,
     "ehh": 20,
