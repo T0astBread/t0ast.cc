@@ -5,6 +5,10 @@
     box-sizing: border-box;
 }
 
+html, body, #root {
+    min-height: 100vh;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -12,6 +16,12 @@ body {
     background-color: $color_background;
     @include text_body();
     font-family: $font_monospace;
+}
+
+#root, #root > div:first-child { //Somewhere this wrapper child is created, idk where
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 section:not(:first-child) {
@@ -56,6 +66,12 @@ nav#page-nav {
         bottom: 0;
         border-bottom: 1px solid #555;
     }
+}
+
+.content, .content > div:first-child { //More wrapper children
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .content {
