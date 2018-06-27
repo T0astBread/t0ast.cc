@@ -11,6 +11,33 @@
     }
 }
 
+.empty-list {
+    width: 100%;
+    max-width: 24rem;
+    flex-grow: 1;
+    max-height: 30rem;
+    position: relative;
+
+    .empty-list-placeholder {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        opacity: .25;
+
+        img {
+            opacity: .75;
+            filter: grayscale(90%);
+        }
+    
+        span {
+            display: block;
+            margin: .75rem;
+        }
+    }
+}
+
 .list-item-2 {
     $padding-vertically: .75rem;
     $padding-horizontally: 1rem;
