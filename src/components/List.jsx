@@ -4,7 +4,7 @@ import '../scss/components/lists.scss'
 import placeholder from '../media/images/unused_character_face.png'
 
 const List = ({ id, className, children }) => {
-    if(children && children.length > 0) return listWithElements(className, children)
+    if(children && children.length > 0) return listWithElements(id, className, children)
     return emptyList(id, className)
 }
 
