@@ -6,6 +6,10 @@ table {
     border-spacing: 0;
 }
 
+thead tr, tbody tr:nth-child(2n) {
+    background: $color_background-semidark;
+}
+
 th, td {
     padding: .5rem;
     text-align: center;
@@ -63,6 +67,8 @@ th {
         $rowborder: 1px solid $color_primary;
         border-top: $rowborder;
         border-bottom: $rowborder;
+
+        background: none!important;
 
         &:first-child {
             margin-top: $edge-rowmargin;

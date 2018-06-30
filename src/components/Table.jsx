@@ -3,7 +3,9 @@ import React from 'react'
 const Table = ({ headings, rows }) => (
     <table>
         <thead>
-            {headings.map(heading => <th>{heading}</th>)}
+            <tr>
+                {headings.map(heading => <th>{heading}</th>)}
+            </tr>
         </thead>
         <tbody>
             {rows.map(row => {
