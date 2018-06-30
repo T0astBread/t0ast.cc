@@ -4,7 +4,7 @@ import { withSiteData } from 'react-static'
 import StandardPage from '../pages/StandardPage'
 
 export default withSiteData(({ match, location, history }) => (
-	<StandardPage>
+	<StandardPage breadcrumbs={["404"]}>
 		<div>
 			<h1>Status 404</h1>
 			<code>{location.pathname}</code>

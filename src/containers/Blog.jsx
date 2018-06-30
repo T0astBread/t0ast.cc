@@ -6,7 +6,7 @@ import ListItem2 from '../components/ListItem2';
 import List from '../components/List';
 
 export default withRouteData(({ posts }) => (
-	<StandardPage>
+	<StandardPage breadcrumbs={["blog"]}>
 		<div>
 			<h1>Blog</h1>
 			<span>All Posts:</span>

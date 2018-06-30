@@ -7,7 +7,7 @@ import { getReposData } from './static/repos'
 
 export default {
   getSiteData: () => ({
-    title: 'React Static',
+    title: 't0ast.cc',
   }),
   getRoutes: async () => {
     setUpAxios()

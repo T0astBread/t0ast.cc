@@ -13,7 +13,7 @@ import ListItem2 from '../components/ListItem2'
 import Table from '../components/Table';
 
 export default withRouteData(({ repositories, pinnedRepositories, metaData }) => (
-    <StandardPage>
+    <StandardPage breadcrumbs={["repos"]}>
         <Table
             headings={["Name", "Status", "Last Update", "Description"]}
             rows={

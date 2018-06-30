@@ -7,7 +7,7 @@ import StandardPage from '../pages/StandardPage'
 import Link from '../components/Link';
 
 export default withRouteData(({ post }) => (
-	<StandardPage>
+	<StandardPage breadcrumbs={[post.id, "blog"]}>
 		<article className="post">
 			<Link to="/blog" className="back">Back</Link>
 			<header>

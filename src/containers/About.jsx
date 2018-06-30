@@ -4,7 +4,7 @@ import StandardPage from '../pages/StandardPage'
 import Link from '../components/Link';
 
 export default () => (
-	<StandardPage>
+	<StandardPage breadcrumbs={["about"]}>
 		<section>
 			<h1>About Me</h1>
 			<p>No one needs an about page about me</p>

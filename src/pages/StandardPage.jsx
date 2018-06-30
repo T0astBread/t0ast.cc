@@ -1,15 +1,16 @@
 import React from 'react'
-import NavBar from '../components/NavBar'
+import { withSiteData } from 'react-static'
 //
 import "../scss/pages/home.scss"
+import PageHead from '../PageHead'
+import NavBar from '../components/NavBar'
 
-const NavPage = props => (
+export default withSiteData(({ title, breadcrumbs, children }) => (
     <div>
+        <PageHead breadcrumbs={breadcrumbs}/>
         <NavBar id="page-nav"/>
         <main className="content">
-            {props.children}
+            {children}
         </main>
     </div>
-)
- 
-export default NavPage
+))
