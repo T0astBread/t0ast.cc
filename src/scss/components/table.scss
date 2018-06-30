@@ -1,5 +1,6 @@
 @import "../styles/colors";
 @import "../styles/typography";
+@import "../styles/dimensions";
 
 table {
     border-spacing: 0;
@@ -26,8 +27,73 @@ th, td {
     tbody tr:last-child & {
         border-bottom: $cellborder;
     }
+
+    .list-item-2 {
+        padding: 0;
+    }
+
+    .responsive-cell-heading {
+        display: none;
+        padding-right: 2.5rem;
+    }
 }
 
 th {
     @include text_small();
+}
+
+@media screen and (max-width: $dimen_mobile-width) {
+    table, tbody {
+        display: block;
+        width: 100%;
+        max-width: none!important;
+    }
+
+    th {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+
+        $rowmargin: 2.5rem;
+        $edge-rowmargin: 1rem;
+        margin: $rowmargin 0;
+
+        $rowborder: 1px solid $color_primary;
+        border-top: $rowborder;
+        border-bottom: $rowborder;
+
+        &:first-child {
+            margin-top: $edge-rowmargin;
+        }
+
+        &:last-child {
+            margin-bottom: $edge-rowmargin;
+        }
+
+        td {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            max-width: none!important;
+            text-align: end!important;
+
+            border: none!important;
+
+            &:nth-child(2n) {
+                background: $color_background-semidark;
+            }
+
+            .responsive-cell-heading {
+                @include text_small();
+                display: inline-block;
+                align-self: center;
+            }
+
+            .cell-content {
+                flex-grow: 1;
+            }
+        }
+    }
 }
