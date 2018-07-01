@@ -4,7 +4,8 @@ import {
 } from './config'
 import {
     rawFileUrlFrom,
-    apiUrlForRepoFrom
+    apiUrlForRepoFrom,
+    websiteUrlFrom
 } from './github'
 
 
@@ -41,7 +42,7 @@ export const getBlogPosts = async () => {
             tags: postMeta.tags,
             lastEditDate,
             body,
-            githubUrl: rawFileUrlFrom(blogRepo, `posts/${postMeta.filename}`)
+            githubUrl: websiteUrlFrom(blogRepo, `posts/${postMeta.filename}`)
         }
     }))
     return posts
