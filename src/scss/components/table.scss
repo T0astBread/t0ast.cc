@@ -6,6 +6,8 @@ $cellborder: 1px solid $color_primary;
 
 table {
     display: block;
+    width: -moz-fit-content;
+    width: fit-content;
     max-width: 100%;
     overflow: auto;
 
@@ -13,6 +15,7 @@ table {
 }
 
 .table-wrapper {
+    width: -moz-fit-content;
     width: fit-content;
     max-width: 100%;
     position: relative;
