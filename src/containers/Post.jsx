@@ -18,7 +18,7 @@ export default withRouteData(({ post }) => (
 				</small>
 			</header>
 			<main>
-				<ReactMarkdown source={post.body}/>
+				<ReactMarkdown source={post.body} />
 			</main>
 		</article>
 	</StandardPage>

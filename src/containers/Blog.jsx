@@ -7,20 +7,18 @@ import List from '../components/List';
 
 export default withRouteData(({ posts }) => (
 	<StandardPage breadcrumbs={["blog"]}>
-		<div>
-			<h1>Blog</h1>
-			<span>All Posts:</span>
-			<List>
-				{posts.map(post => (
-					<li key={post.id}>
-						<Link to={`/blog/posts/${post.id}`}>
-							<ListItem2
-								text1={post.title}
-								text2={post.lastEditDate}/>
-						</Link>
-					</li>
-				))}
-			</List>
-		</div>
+		<h1>Blog</h1>
+		<span>All Posts:</span>
+		<List>
+			{posts.map(post => (
+				<li key={post.id}>
+					<Link to={`/blog/posts/${post.id}`}>
+						<ListItem2
+							text1={post.title}
+							text2={post.lastEditDate} />
+					</Link>
+				</li>
+			))}
+		</List>
 	</StandardPage>
 ))
