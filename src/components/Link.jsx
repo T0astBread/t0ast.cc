@@ -13,6 +13,7 @@ const LinkX = props => {
     if(props.newtab) {
         props = {...props, target: "_blank", rel: "noopener norefferrer"}
     }
+    if(!props["aria-label"]) props = {...props, "aria-label": props.children}
     return Link(props)
 }
 
