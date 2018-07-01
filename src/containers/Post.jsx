@@ -5,9 +5,11 @@ import ReactMarkdown from 'react-markdown'
 import "../scss/containers/post.scss"
 import StandardPage from '../pages/StandardPage'
 import Link from '../components/Link';
+import ReadabilityController from '../components/ReadabilityController';
 
 export default withRouteData(({ post }) => (
 	<StandardPage breadcrumbs={[post.id, "blog"]}>
+		<ReadabilityController target=".post"/>
 		<article className="post">
 			<Link to="/blog" className="back">Back</Link>
 			<header>

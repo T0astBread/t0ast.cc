@@ -1,0 +1,70 @@
+@import "../styles/colors";
+@import "../styles/typography";
+
+.readability-controller {
+    position: fixed;
+    right: 0;
+    top: 40%;
+    padding: 1em;
+    background: $color_background-dark;
+
+    &.collapsed {
+        transform-origin: 100% 0;
+        transform: rotate(90deg);
+
+        .title-row {
+            button {
+
+                span {
+                    transform: rotate(-90deg);
+                    margin-right: 1em;
+                }
+            }
+        }
+    }
+
+    .title-row {
+        button {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            margin-bottom: .25rem;
+            text-align: start;
+            background: none;
+            border: none;
+            @include text_small();
+            // color: $color_background-text;
+
+            * {
+                display: inline-block;
+                height: 100%;
+            }
+
+            h1 {
+                flex-grow: 1;
+                @include text_medium();
+                margin-bottom: .5em;
+            }
+        }
+    }
+
+    label {
+        display: block;
+        margin-bottom: .25em;
+
+        span {
+            display: inline-block;
+            width: 8em;
+        }
+
+        input {
+            display: inline-block;
+            width: 12em;
+            vertical-align: middle;
+            margin-left: 1em;
+        }
+    }
+}
