@@ -2,8 +2,31 @@
 @import "../styles/typography";
 @import "../styles/dimensions";
 
+$cellborder: 1px solid $color_primary;
+
 table {
+    display: block;
+    max-width: 100%;
+    overflow: auto;
+
     border-spacing: 0;
+}
+
+.table-wrapper {
+    width: fit-content;
+    max-width: 100%;
+    position: relative;
+
+    .static-table-border {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: $cellborder;
+        pointer-events: none;
+    }
 }
 
 thead tr, tbody tr:nth-child(2n) {
@@ -14,7 +37,6 @@ th, td {
     padding: .5rem;
     text-align: center;
 
-    $cellborder: 1px solid $color_primary;
     border: $cellborder;
     border-right: none;
     border-bottom: none;
@@ -47,6 +69,10 @@ th {
 }
 
 @media screen and (max-width: $dimen_mobile-width) {
+    .table-wrapper .static-table-border {
+        display: none;
+    }
+
     table, tbody {
         display: block;
         width: 100%;
