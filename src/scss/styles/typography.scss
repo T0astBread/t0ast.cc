@@ -1,4 +1,5 @@
 @import "colors";
+@import "fluid-type";
 
 $font_sans-serif: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 $font_monospace: 'Consolas', monospace;
@@ -10,32 +11,32 @@ $font-weight_bold: 900;
 
 @mixin text_title {
     font-weight: $font-weight_light;
-    font-size: 4rem;
+    font-size: 3.157em;
 }
 
 @mixin text_headline {
     font-weight: $font-weight_bold;
-    font-size: 2.5rem;
+    font-size: 2.369em;
 }
 
 @mixin text_small {
-    font-size: .9rem;
+    font-size: 0.75em;
     color: rgba(255, 255, 255, .75) // TODO: Improve this by using $color_background-text
 }
 
 @mixin text_medium {
     font-weight: $font-weight_bold;
-    font-size: 1.5rem;
+    font-size: 1.333em;
 }
 
 @mixin text_large {
     font-weight: $font-weight_bold;
-    font-size: 2rem;
+    font-size: 1.777em;
 }
 
 @mixin text_body {
     font-weight: $font-weight_regular;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 @mixin text_body-strong {
