@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-    metaRepo
+    metaRepo, isInOfflineDevMode
 } from './config'
 const fs = require("fs")
 import {
@@ -43,7 +43,19 @@ const loadRepoMetadataInto = async (githubData) => {
     }))
 }
 
+
+const offlineResult = {
+    pinnedRepositories: {
+        nodes: []
+    },
+    repositories: {
+        nodes: []
+    }
+}
+
 export const getReposData = async () => {
+    if(isInOfflineDevMode()) return offlineResult
+
     const githubData = await getGithubApiData()
     await loadRepoMetadataInto(githubData)
     githubData.repositories.nodes = githubData.repositories.nodes.sort(compareReposByStatus)

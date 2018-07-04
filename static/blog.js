@@ -1,6 +1,6 @@
 import axios from 'axios'
 import {
-    blogRepo as blogRepoConf
+    blogRepo as blogRepoConf, isInOfflineDevMode
 } from './config'
 import {
     rawFileUrlFrom,
@@ -14,7 +14,11 @@ const blogRepo = blogRepoConf()
 const TOC_URL = rawFileUrlFrom(blogRepo, "table_of_contents.json")
 
 
+const offlineResult = []
+
 export const getBlogPosts = async () => {
+    if(isInOfflineDevMode()) return offlineResult
+
     const {
         data: toc
     } = await axios.get(TOC_URL)

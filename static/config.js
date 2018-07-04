@@ -1,4 +1,5 @@
 export const isInDevMode = () => process.env.NODE_ENV !== "production"
+export const isInOfflineDevMode = () => process.env.NODE_ENV === "offline-dev"
 
 export const githubBearer = () => isInDevMode() ?
     process.env.T0AST_CC__DEV__GITHUB_BEARER :
@@ -23,6 +24,7 @@ export const metaRepo = () => isInDevMode() ? {
 
 const runConfigChecks = () => {
     console.log(isInDevMode() ? "⚡️  Running in development mode" : "✔️  Running in production mode")
+    if(isInOfflineDevMode()) console.log("Running in OFFLINE DEV MODE")
     if(!githubBearer()) throw new Error("No GitHub bearer token was found! Please set the T0AST_CC__DEV__GITHUB_BEARER or T0AST_CC__PRODUCTION__GITHUB_BEARER environment variables, respectively.")
 }
 
