@@ -44,6 +44,48 @@ export default {
         getData: () => repos
       },
       {
+        path: '/shelf',
+        component: 'src/containers/Shelf',
+        getData: () => ({
+          shelfItems: [
+            {
+              name: "Tweetdown",
+              description: "Browser extension to enable Markdown on Twitter",
+              website: "https://t0astbread.github.io/Tweetdown",
+              language: {
+                name: "JavaScript",
+                color: "yellow"
+              }
+            },
+            {
+              name: "yBooru",
+              description: "Booru aggregator",
+              website: "http://localhost:3000/ybooru",
+              language: {
+                name: "Kotlin",
+                color: "orange"
+              }
+            },
+            {
+              name: "Boneless",
+              description: "Language",
+              language: {
+                name: "Java",
+                color: "brown"
+              }
+            },
+            {
+              name: "Tweetdown",
+              description: "Browser extension to enable Markdown on Twitter",
+              language: {
+                name: "JavaScript",
+                color: "yellow"
+              }
+            }
+          ]
+        })
+      },
+      {
         is404: true,
         component: 'src/containers/404',
       },
