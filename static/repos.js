@@ -1,7 +1,8 @@
 import axios from "axios";
 import {
-    metaRepo, isInOfflineDevMode
+    metaRepo
 } from './config'
+import { isInOfflineDevMode } from '../src/utils/config'
 const fs = require("fs")
 import {
     graphQlRequest,
