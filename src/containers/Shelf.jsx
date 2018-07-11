@@ -3,7 +3,9 @@ import React from 'react'
 import StandardPage from '../pages/StandardPage';
 import Shelf from '../components/Shelf';
 //
-import shelfItems from '../data/shelf/items.json'
+import { isInDevMode } from '../utils/config'
+// import shelfItems from '../data/shelf/production/items.json'
+const shelfItems = require(`../data/shelf/${isInDevMode() ? "dev" : "production"}/items.json`)
 
 export default () => (
     <StandardPage breadcrumbs={["shelf"]}>
