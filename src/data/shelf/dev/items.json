@@ -1,22 +1,26 @@
 {
     "items": [
         {
-            "name": "Tweetdown",
-            "description": "Browser extension to enable Markdown on Twitter",
-            "website": "https://t0astbread.github.io/Tweetdown",
+            "name": "ShelfItem #1",
+            "description": "Lorem ipsum dolor sit amet",
+            "website": "https://example.com/shelfitem1",
             "language": "JavaScript"
         },
         {
-            "name": "Tweetdown",
-            "description": "Browser extension to enable Markdown on Twitter",
-            "website": "https://t0ast.cc/Tweetdown",
-            "language": "JavaScript"
+            "name": "ShelfItem #2",
+            "description": "Cum ullam eum quasi rerum aperiam dicta",
+            "website": "https://t0ast.cc/shelf/shelfitem2",
+            "language": "CoffeeScript"
         }
     ],
     "languages": [
         {
             "name": "JavaScript",
             "color": "#ff0"
+        },
+        {
+            "name": "CoffeeScript",
+            "color": "#5d4037"
         }
     ]
 }
