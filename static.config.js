@@ -4,6 +4,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import setUpAxios from './static/axios_setup'
 import { getBlogPosts } from './static/blog'
 import { getReposData } from './static/repos'
+import { getShelfRoutes } from './static/shelf';
 
 export default {
   getSiteData: () => ({
@@ -45,7 +46,8 @@ export default {
       },
       {
         path: '/shelf',
-        component: 'src/containers/Shelf'
+        component: 'src/containers/Shelf',
+        children: await getShelfRoutes()
       },
       {
         is404: true,

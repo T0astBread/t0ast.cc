@@ -9,7 +9,7 @@
         {
             "name": "ShelfItem #2",
             "description": "Cum ullam eum quasi rerum aperiam dicta",
-            "website": "https://t0ast.cc/shelf/shelfitem2",
+            "website": "/shelf/shelfitem2",
             "language": "CoffeeScript"
         }
     ],
