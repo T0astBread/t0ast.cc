@@ -24,7 +24,11 @@ const LinkX = props => {
         props = {...props, target: "_blank", rel: "noopener norefferrer"}
     }
     if(!props["aria-label"]) props = {...props, "aria-label": props.children}
-    return Link(props)
+    return (
+        <span onClick={props.onClick}>
+            <Link {...props}/>
+        </span>
+    )
 }
 
 export default LinkX
