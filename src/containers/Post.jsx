@@ -4,12 +4,13 @@ import ReactMarkdown from 'react-markdown'
 //
 import "../scss/containers/post.scss"
 import StandardPage from '../pages/StandardPage'
+import BackLink from '../components/BackLink'
 import Link from '../components/Link';
 
 export default withRouteData(({ post }) => (
 	<StandardPage breadcrumbs={[post.id, "blog"]}>
 		<article className="post">
-			<Link to="/blog" className="back">Back</Link>
+			<BackLink to="/blog"/>
 			<header>
 				<h1>{post.title}</h1>
 				<small>
