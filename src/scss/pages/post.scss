@@ -11,7 +11,7 @@ article.post {
         small {
             @include text_small();
     
-            & > span::after {
+            & > span:not(:last-child)::after {
                 content: " | ";
             }
         }

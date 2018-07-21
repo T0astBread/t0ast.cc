@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouteData } from 'react-static'
 import ReactMarkdown from 'react-markdown'
 //
-import "../scss/containers/post.scss"
+import "../scss/pages/post.scss"
 import StandardPage from '../pages/StandardPage'
 import BackLink from '../components/BackLink'
 import Link from '../components/Link';
