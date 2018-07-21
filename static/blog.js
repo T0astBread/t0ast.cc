@@ -1,6 +1,7 @@
 import axios from 'axios'
+import { isInOfflineDevMode } from '../src/utils/config'
 import {
-    blogRepo as blogRepoConf, isInOfflineDevMode
+    blogRepo as blogRepoConf
 } from './config'
 import {
     rawFileUrlFrom,

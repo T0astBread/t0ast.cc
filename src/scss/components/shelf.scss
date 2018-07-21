@@ -1,0 +1,132 @@
+@import "../styles/colors";
+@import "../styles/typography";
+
+@mixin grid($columns) {
+    display: grid;
+    grid-template-columns: repeat($columns, 300px);
+    grid-row-gap: 3rem;
+    grid-column-gap: 3.5rem;
+}
+
+ul.shelf {
+    max-width: none;
+    padding: 2em;
+    margin: 0;
+    list-style: none;
+    @include grid(2);
+
+    @media screen and (min-width: 1200px) {
+        @include grid(3);
+    }
+
+    @media screen and (min-width: 1780px) {
+        @include grid(4);
+    }
+
+    li {
+        // width: 20em;
+        // height: 12em;
+        vertical-align: top;
+        // margin: 0 0 3.5rem 3rem;
+    }
+}
+
+.shelf-item {
+    display: flex;
+    flex-direction: column;
+    // width: -moz-fit-content;
+    // width: fit-content;
+    height: 100%;
+    padding: 1.5em;
+    border: 1px solid $color_background-text;
+    border-radius: .5em;
+    position: relative;
+
+    h5 {
+        @include text_large();
+        margin-top: 0;
+        margin-bottom: .5rem;
+    }
+
+    p {
+        display: block;
+        flex-grow: 1;
+    }
+
+    .language-display {
+        display: flex;
+        align-items: center;
+
+        .color-dot {
+            display: inline-block;
+
+            $diameter: 1rem;
+            width: $diameter;
+            height: $diameter;
+
+            position: relative;
+            margin-right: 1rem;
+            border-radius: 50%;
+            transition: .25s ease;
+
+            &::after {
+                content: " ";
+                display: block;
+                width: 50%;
+                height: 50%;
+                padding: 3px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                border: 1.75px solid $color_background-text;
+                opacity: 0;
+                transition: .25s ease;
+            }
+
+            &:hover {
+                $hover-diameter: .8rem;
+                width: $hover-diameter;
+                height: $hover-diameter;
+                margin-right: 1.1rem;
+                margin-left: .1rem;
+
+                &::after {
+                    width: 100%;
+                    height: 100%;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.last-shelf-item {
+        color: black;
+        background: white;
+
+        h5 {
+            flex-grow: 1;
+            margin-bottom: 1.5em;
+        }
+    }
+}
+
+@media screen and (max-width: 750px) {
+    ul.shelf {
+        grid-template-columns: 1fr;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .shelf-item {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+
+        &.last-shelf-item {
+            border: none;
+            padding: 3em 2em;
+        }
+    }
+}

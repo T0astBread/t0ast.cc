@@ -1,7 +1,5 @@
 import dotenv from 'dotenv'
-
-export const isInDevMode = () => process.env.NODE_ENV !== "production"
-export const isInOfflineDevMode = () => process.env.NODE_ENV === "offline-dev"
+import { isInDevMode, isInOfflineDevMode } from '../src/utils/config'
 
 export const githubBearer = () => isInDevMode() ?
     process.env.T0AST_CC__DEV__GITHUB_BEARER :

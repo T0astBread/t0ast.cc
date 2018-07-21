@@ -1,0 +1,26 @@
+{
+    "items": [
+        {
+            "name": "ShelfItem #1",
+            "description": "Lorem ipsum dolor sit amet",
+            "website": "https://example.com/shelfitem1",
+            "language": "JavaScript"
+        },
+        {
+            "name": "ShelfItem #2",
+            "description": "Cum ullam eum quasi rerum aperiam dicta",
+            "website": "/shelf/shelfitem2",
+            "language": "CoffeeScript"
+        }
+    ],
+    "languages": [
+        {
+            "name": "JavaScript",
+            "color": "#ff0"
+        },
+        {
+            "name": "CoffeeScript",
+            "color": "#5d4037"
+        }
+    ]
+}
