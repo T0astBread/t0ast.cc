@@ -73,7 +73,17 @@ const mapJSONFileToRoute = async (pageFileDir, pageFileName) => {
             getResourceName(page.resource)
         )
         return modifyExternalRouteToMatchLocalPageData(externalPageRoute, pageName)
-    } else {
+    } 
+    else if (page.type === "redirect") {
+        return {
+            path: `/${pageName}`,
+            component: `src/heads/RedirectHead`,
+            getData: () => ({
+                target: page.target
+            })
+        }
+    }
+    else {
         console.error(`Page with file ${pageFileName} has an invalid type: ${page.type}`)
     }
 }
@@ -83,7 +93,6 @@ const modifyExternalRouteToMatchLocalPageData = (externalPageRoute, pageName) =>
     const externalGetData = externalPageRoute.getData
     externalPageRoute.getData = () => {
         const externalData = externalGetData()
-        console.log(externalData)
         externalData.itemName = pageName
         return externalData
     }
