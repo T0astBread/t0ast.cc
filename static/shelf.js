@@ -29,6 +29,11 @@ const loadResource = async resourcePath => {
     })
 }
 
+const createShelfRoute = (pageName, pageData) => Object.assign({
+    path: `/${pageName}`,
+    priority: .25
+}, pageData)
+
 const mapPageFileToRoute = async (pageFileDir, pageFileName) => {
     console.log(`Loading page from ${pageFileName}`)
     if (pageFileName.endsWith(".md")) return await mapMarkdownPageFileToRoute(pageFileDir, pageFileName)
@@ -40,22 +45,20 @@ const mapMarkdownPageFileToRoute = async (pageFileDir, pageFileName) => {
     const pageFilePath = pageFileDir + "/" + pageFileName
     const pageName = pageFileName.replace(".md", "")
     const pageContent = await loadResource(pageFilePath)
-    return {
-        path: `/${pageName}`,
+    return createShelfRoute(pageName, {
         component: "src/containers/shelf-pages/MarkdownShelfPage",
         getData: () => ({
             itemName: pageName,
             content: pageContent
         })
-    }
+    })
 }
 
 const mapJSXPageFileToRoute = (pageFileDir, pageFileName) => {
     const pageFilePath = pageFileDir + "/" + pageFileName
-    return {
-        path: `/${pageFileName.replace(".jsx", "")}`,
+    return createShelfRoute(pageFileName.replace(".jsx", ""), {
         component: pageFilePath.replace("../../", "")
-    }
+    })
 }
 
 const mapJSONFileToRoute = async (pageFileDir, pageFileName) => {
@@ -65,9 +68,8 @@ const mapJSONFileToRoute = async (pageFileDir, pageFileName) => {
     const pageName = pageFileName.replace(".json", "")
 
     if (page.type === "external") {
-        if (isInOfflineDevMode()) return {
-            path: `/${pageName}`
-        }
+        if (isInOfflineDevMode()) return createShelfRoute(pageName, {})
+
         const externalPageRoute = await mapPageFileToRoute(
             getParentOfResource(page.resource),
             getResourceName(page.resource)
@@ -75,13 +77,12 @@ const mapJSONFileToRoute = async (pageFileDir, pageFileName) => {
         return modifyExternalRouteToMatchLocalPageData(externalPageRoute, pageName)
     } 
     else if (page.type === "redirect") {
-        return {
-            path: `/${pageName}`,
+        return createShelfRoute(pageName, {
             component: `src/heads/RedirectHead`,
             getData: () => ({
                 target: page.target
             })
-        }
+        })
     }
     else {
         console.error(`Page with file ${pageFileName} has an invalid type: ${page.type}`)
