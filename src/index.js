@@ -1,6 +1,5 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import fs from 'fs'
 
 // Your top level component
 import App from './App'
@@ -19,6 +18,15 @@ if (typeof document !== 'undefined') {
   render(App)
 }
 
-// Copy the _redirects file used to configure redirects on Netlify in the dist directory
-const redirectsFile = fs.readFileSync("_redirects", {encoding: "utf-8"})
-fs.writeFileSync("dist/_redirects", redirectsFile, {encoding: "utf-8"})
+// Check if the fs module is available (it should be during build but not when you run react-static start)
+let fs
+try {
+  fs = require("fs")
+}
+catch(err) {
+  console.warn("fs module not found - not copying _redirects file")
+}
+if(fs) { // Copy the _redirects file used to configure redirects on Netlify into the dist directory
+  const redirectsFile = fs.readFileSync("_redirects", {encoding: "utf-8"})
+  fs.writeFileSync("dist/_redirects", redirectsFile, {encoding: "utf-8"})
+}
