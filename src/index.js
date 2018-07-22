@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import fs from 'fs'
 
 // Your top level component
 import App from './App'
@@ -17,3 +18,7 @@ if (typeof document !== 'undefined') {
   // Render!
   render(App)
 }
+
+// Copy the _redirects file used to configure redirects on Netlify in the dist directory
+const redirectsFile = fs.readFileSync("_redirects", {encoding: "utf-8"})
+fs.writeFileSync("dist/_redirects", redirectsFile, {encoding: "utf-8"})
