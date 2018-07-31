@@ -41,9 +41,11 @@ const NavBar = props => (
     <nav className={props.light && "light"} id={props.id}>
         <ul>
             {links.map(link =>
-                <Link {...link}>
-                    {link.text}
-                </Link>
+                <li key={link.to}>
+                    <Link {...link}>
+                        {link.text}
+                    </Link>
+                </li>
             )}
         </ul>
     </nav>

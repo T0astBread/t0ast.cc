@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-static'
 
 const hosts = ["t0ast.cc", "t0ast.netlify.com"]
-const linkIsOnHost = link => link && (linkPointsToLocalRoute(link) || urlWithoutProtocolIsOnHost(link))
+const linkIsOnHost = link => link && (linkPointsToLocalRoute(link) || urlIsOnHost(link))
 const linkPointsToLocalRoute = link => !(link.startsWith("http://") || link.startsWith("https://"))
 const urlIsOnHost = url => urlWithoutProtocolIsOnHost(stripProtocolFromUrl(url))
 const stripProtocolFromUrl = url => url.replace(/^http(s)?:\/\//, "")
@@ -21,7 +21,7 @@ const LinkX = props => {
         props = {...props, newtab: !linkIsOnHost(props.to)}
     }
     if(props.newtab) {
-        props = {...props, target: "_blank", rel: "noopener norefferrer"}
+        props = {...props, target: "_blank", rel: "noopener noreferrer"}
     }
     if(!props["aria-label"]) props = {...props, "aria-label": props.children}
     return (
