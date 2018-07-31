@@ -56,6 +56,10 @@ export default {
         priority: .5,
       },
       {
+        path: '/nope',
+        component: 'src/containers/NotImplemented',
+      },
+      {
         is404: true,
         component: 'src/containers/404',
       },
