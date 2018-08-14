@@ -16,7 +16,7 @@ export default () => (
 			<h2>About this Site</h2>
 			<p>
 				This site is written in JavaScript (JSX) using <Link to="https://react-static.js.org">React Static</Link>.
-				It follows the principles fo the <Link to="https://jamstack.org">JAMstack</Link> and is hosted on <Link to="https://netlify.com">Netlify</Link>.
+				It follows the principles of the <Link to="https://jamstack.org">JAMstack</Link> and is hosted on <Link to="https://netlify.com">Netlify</Link>.
 			</p>
 			<p>
 				Note that it's still in development, so it's a little rough around the edges.
