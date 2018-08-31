@@ -2,8 +2,8 @@ import dotenv from 'dotenv'
 import { isInDevMode, isInOfflineDevMode } from '../src/utils/config'
 
 export const githubBearer = () => isInDevMode() ?
-    process.env.T0AST_CC__DEV__GITHUB_BEARER :
-    process.env.T0AST_CC__PRODUCTION__GITHUB_BEARER
+    process.env.GITHUB_BEARER__DEV :
+    process.env.GITHUB_BEARER__PRODUCTION
 
 export const blogRepo = () => isInDevMode() ? {
     owner: "TestBread",
@@ -36,7 +36,7 @@ const loadDotEnv = () => {
 const runConfigChecks = () => {
     console.log(isInDevMode() ? "⚡️  Running in development mode" : "✔️  Running in production mode")
     if(isInOfflineDevMode()) console.log("Running in OFFLINE DEV MODE")
-    if(!githubBearer()) throw new Error("No GitHub bearer token was found! Please set the T0AST_CC__DEV__GITHUB_BEARER or T0AST_CC__PRODUCTION__GITHUB_BEARER environment variables, respectively.")
+    if(!githubBearer()) throw new Error("No GitHub bearer token was found! Please set the GITHUB_BEARER__DEV or GITHUB_BEARER__PRODUCTION environment variables, respectively.")
 }
 
 const initialize = () => {
