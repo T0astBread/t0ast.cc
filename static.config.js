@@ -6,7 +6,7 @@ import {getReposData} from './static/repos'
 import {getShelfRoutes} from './static/shelf';
 
 export default {
-  siteRoot: "https://t0ast.cc",
+  siteRoot: process.env.SITE_ROOT || "https://t0ast.cc",
   getSiteData: () => ({
     title: 't0ast.cc',
   }),
