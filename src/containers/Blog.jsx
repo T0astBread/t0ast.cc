@@ -9,7 +9,7 @@ export default withRouteData(({posts}) => (
 	<StandardPage
 		breadcrumbs={["blog"]}
 		keywords={["blog"]}
-		description={"Here I write about technical stuff I learnt or found out about"}>
+		description="Here I write about technical stuff I learnt or found out about or just general thoughts">
 		<h1>Blog</h1>
 		<span>All Posts:</span>
 		<List>

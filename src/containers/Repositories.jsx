@@ -16,7 +16,7 @@ export default withRouteData(({repositories, pinnedRepositories, metaData}) => (
     <StandardPage
         breadcrumbs={["repos"]}
         keywords={["projects", "repos", "repositories", "git", "github"]}
-        description={"A list of my GitHub repositories"}>
+        description="A list of my GitHub repositories, containing software projects and other works">
         <Table
             headings={["Name", "Status", "Last Update", "Description"]}
             rows={

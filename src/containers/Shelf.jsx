@@ -11,7 +11,7 @@ export default () => (
     <StandardPage
         breadcrumbs={["shelf"]}
         keywords={["projects", "showcase"]}
-        description={"A \"display shelf\" for finished and polished works. Get this stuff!"}>
+        description={"A \"display shelf\" for finished and polished software projects or other works. Get this stuff!"}>
         <h1>Shelf</h1>
         <p>A "display shelf" for finished and polished works. Get this stuff!</p>
         <Shelf {...shelfItems} />

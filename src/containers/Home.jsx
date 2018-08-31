@@ -6,7 +6,7 @@ import NavBar from '../components/NavBar';
 
 export default withSiteData(() => (
 	<div>
-		<PageHead description="This is my website" />
+		<PageHead description="This is my website where I show my software projects and related stuff" />
 		<main id="home">
 			<NavBar light />
 		</main>
