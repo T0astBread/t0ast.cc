@@ -1,9 +1,9 @@
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 //
 import setUpAxios from './static/axios_setup'
-import { getBlogPosts } from './static/blog'
-import { getReposData } from './static/repos'
-import { getShelfRoutes } from './static/shelf';
+import {getBlogPosts} from './static/blog'
+import {getReposData} from './static/repos'
+import {getShelfRoutes} from './static/shelf';
 
 export default {
   siteRoot: "https://t0ast.cc",
@@ -12,7 +12,7 @@ export default {
   }),
   getRoutes: async () => {
     setUpAxios()
-    
+
     const posts = await getBlogPosts()
     const repos = await getReposData()
 
@@ -65,11 +65,11 @@ export default {
       },
     ]
   },
-  webpack: (config, { defaultLoaders, stage }) => {
+  webpack: (config, {defaultLoaders, stage}) => {
     let loaders = []
 
-    if (stage === 'dev') {
-      loaders = [{ loader: 'style-loader' }, { loader: 'css-loader' }, { loader: 'sass-loader' }]
+    if(stage === 'dev') {
+      loaders = [{loader: 'style-loader'}, {loader: 'css-loader'}, {loader: 'sass-loader'}]
     } else {
       loaders = [
         {
@@ -82,12 +82,12 @@ export default {
         },
         {
           loader: 'sass-loader',
-          options: { includePaths: ['src/'] },
+          options: {includePaths: ['src/']},
         },
       ]
 
       // Don't extract css to file during node build process
-      if (stage !== 'node') {
+      if(stage !== 'node') {
         loaders = ExtractTextPlugin.extract({
           fallback: {
             loader: 'style-loader',
