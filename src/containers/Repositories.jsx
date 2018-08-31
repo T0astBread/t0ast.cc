@@ -15,7 +15,7 @@ import Table from '../components/Table';
 export default withRouteData(({repositories, pinnedRepositories, metaData}) => (
     <StandardPage
         breadcrumbs={["repos"]}
-        keywords={["projects", "repos", "repositories", "github", "list"]}
+        keywords={["projects", "repos", "repositories", "git", "github"]}
         description={"A list of my GitHub repositories"}>
         <Table
             headings={["Name", "Status", "Last Update", "Description"]}

@@ -6,7 +6,7 @@ import Link from '../components/Link';
 export default () => (
 	<StandardPage
 		breadcrumbs={["about"]}
-		keywords={["about", "javascript", "jsx", "react", "react-static", "jamstack", "netlify"]}>
+		keywords={["javascript", "application development", "computer science", "machine learning"]}>
 		<h1>About</h1>
 		<section>
 			<h2>About Me</h2>

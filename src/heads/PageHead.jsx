@@ -5,7 +5,7 @@ const PageHead = withSiteData(({title, breadcrumbs, keywords, description, child
     breadcrumbs = breadcrumbs || []
 
     keywords = keywords || []
-    keywords.push("t0ast", "t0astbread", "toast", "toastbread", "software", "development")
+    keywords.push("t0ast", "t0astbread", "software", "development")
 
     breadcrumbs.push(title)
     return (
